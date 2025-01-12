@@ -1,0 +1,60 @@
+### Register User
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "password123"
+}
+
+### Login User
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "john@example.com",
+    "password": "password123"
+}
+
+### Create Invoice
+POST http://localhost:3000/invoices 
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczNjY2NTQwM30.aHQrCeJwHJceNcYSYpkybUN_mPscjV301Cgk_-15oNA
+
+{
+    "invoice_number": "INV001",
+    "client_name": "ABC Company",
+    "date": "2024-01-12",
+    "amount": 1500.50,
+    "status": "Pending"
+}
+
+### Get All Invoices
+GET http://localhost:3000/invoices
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczNjY2NTQwM30.aHQrCeJwHJceNcYSYpkybUN_mPscjV301Cgk_-15oNA
+
+### Get Invoices with Filter
+GET http://localhost:3000/invoices?status=Pending
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczNjY2NTQwM30.aHQrCeJwHJceNcYSYpkybUN_mPscjV301Cgk_-15oNA
+
+### Get Invoices Sorted by Date
+GET http://localhost:3000/invoices?sort_by=date
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczNjY2NTQwM30.aHQrCeJwHJceNcYSYpkybUN_mPscjV301Cgk_-15oNA
+
+### Update Invoice
+PUT http://localhost:3000/invoices/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczNjY2NTQwM30.aHQrCeJwHJceNcYSYpkybUN_mPscjV301Cgk_-15oNA
+
+{
+    "invoice_number": "INV001",
+    "client_name": "ABC Company Updated",
+    "date": "2024-01-12",
+    "amount": 2000.00,
+    "status": "Paid"
+}
+
+### Delete Invoice
+DELETE http://localhost:3000/invoices/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczNjY2NTQwM30.aHQrCeJwHJceNcYSYpkybUN_mPscjV301Cgk_-15oNA
